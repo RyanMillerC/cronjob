@@ -8,6 +8,7 @@ Dead simple CronJobs for Kubernetes.
 cronJob:
   image: registry.redhat.io/openshift4/ose-cli:v4.10
   schedule: "*/1 * * * *"
+  serviceAccount: default
   script: |
     #!/bin/bash
     echo 'Hello World!'

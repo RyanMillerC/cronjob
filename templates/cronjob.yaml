@@ -21,6 +21,7 @@ spec:
               mountPath: "/tmp/scripts/{{ .Release.Name }}.sh"
               subPath: "{{ .Release.Name }}.sh"
           restartPolicy: OnFailure
+          serviceAccount: {{ .Values.cronJob.serviceAccount | default "default" }}
           volumes:
           - name: {{ .Release.Name }}
             configMap:
