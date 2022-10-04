@@ -20,7 +20,7 @@ spec:
             - name: {{ .Release.Name }}
               mountPath: "/tmp/scripts/{{ .Release.Name }}.sh"
               subPath: "{{ .Release.Name }}.sh"
-          restartPolicy: OnFailure
+          restartPolicy: {{ .Values.cronJob.restartPolicy | default "OnFailure" }}
           serviceAccount: {{ .Values.cronJob.serviceAccount | default "default" }}
           volumes:
           - name: {{ .Release.Name }}

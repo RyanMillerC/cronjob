@@ -1,7 +1,8 @@
 cronJob:
   image: registry.access.redhat.com/ubi8:latest
+  restartPolicy: OnFailure # Optional
   schedule: "*/1 * * * *"
-  serviceAccount: default
+  serviceAccount: default # Optional
   script: |
     #!/bin/bash
     echo 'Hello World!'
