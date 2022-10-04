@@ -15,7 +15,7 @@ cronJob:
 
 ## How to Use
 
-* Fork this repo
+* Fork this repo (or *"Use this Template"* in GitHub)
 * Replace variables in [values.yaml](values.yaml) with your own
 * Deploy to your cluster with:
     * `$ helm install my-cronjob .`
