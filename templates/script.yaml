@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
-  {{ .Values.cronJob.name }}.sh: |
+  {{ .Release.Name }}.sh: |
     {{- tpl .Values.cronJob.script . | nindent 4 }}
 kind: ConfigMap
 metadata:
-  name: {{ .Values.cronJob.name }}
+  name: {{ .Release.Name }}

@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Values.cronJob.name }}
+  name: {{ .Release.Name }}
 spec:
   schedule: "{{ .Values.cronJob.schedule }}"
   jobTemplate:
@@ -9,20 +9,20 @@ spec:
       template:
         spec:
           containers:
-          - name: {{ .Values.cronJob.name }}
+          - name: {{ .Release.Name }}
             image: "{{ .Values.cronJob.image }}"
             imagePullPolicy: Always
             command:
             - "/bin/sh"
             - "-c"
-            - "/tmp/scripts/{{ .Values.cronJob.name }}.sh"
+            - "/tmp/scripts/{{ .Release.Name }}.sh"
             volumeMounts:
-            - name: {{ .Values.cronJob.name }}
-              mountPath: "/tmp/scripts/{{ .Values.cronJob.name}}.sh"
-              subPath: "{{ .Values.cronJob.name}}.sh"
+            - name: {{ .Release.Name }}
+              mountPath: "/tmp/scripts/{{ .Release.Name }}.sh"
+              subPath: "{{ .Release.Name }}.sh"
           restartPolicy: OnFailure
           volumes:
-          - name: {{ .Values.cronJob.name }}
+          - name: {{ .Release.Name }}
             configMap:
-              name: {{ .Values.cronJob.name }}
+              name: {{ .Release.Name }}
               defaultMode: 0755

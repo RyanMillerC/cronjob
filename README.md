@@ -7,7 +7,6 @@ Dead simple CronJobs for Kubernetes.
 ```yaml
 cronJob:
   image: registry.redhat.io/openshift4/ose-cli:v4.10
-  name: my-cronjob
   schedule: "*/1 * * * *"
   script: |
     #!/bin/bash
