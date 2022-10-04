@@ -6,7 +6,7 @@ Dead simple CronJobs for Kubernetes.
 
 ```yaml
 cronJob:
-  image: registry.redhat.io/openshift4/ose-cli:v4.10
+  image: registry.access.redhat.com/ubi8:latest
   schedule: "*/1 * * * *"
   serviceAccount: default
   script: |
